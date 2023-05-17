@@ -8,10 +8,11 @@ class Produto {
     }
 
     mostrarProduto(){
-        return this.nome + this.data_de_cadastro + this.descricao + this.preco
-    }
-    
-    
+        return `
+                <h1 class="nome">${this.nome}</h1>
+                <h2 class="descricao">${this.descricao}</h2>`
+        //return this.nome + this.data_de_cadastro + this.descricao + this.preco
+}
 }
 
 class ProdutoDestaque extends Produto {
@@ -22,13 +23,21 @@ class ProdutoDestaque extends Produto {
 
 mostrarProdutoDestaque(){
     return `
-            <h1 class="teste">${this.nome}</h1>`
+            <h1 class="nome">${this.nome}</h1>
+            <img src="opaleira.jpg" height="300px" width=auto>
+            <h2 class="descricao">${this.descricao}</h2>`
             //return this.nome + this.data_de_cadastro + this.descricao + this.preco
 }
 
 }
 
-const produto = new ProdutoDestaque("Opala", "05/03/23", "Carro massa", 1000000)
-console.log(produto.mostrarProdutoDestaque());
+const opala = new ProdutoDestaque("Opala", "05/03/23", "Carro massa", 100000)
+console.log(opala.mostrarProdutoDestaque());
 const produtoDestaque = document.getElementById("produtoDestaque");
-produtoDestaque.insertAdjacentHTML('afterbegin', produto.mostrarProdutoDestaque());
+produtoDestaque.insertAdjacentHTML('afterbegin', opala.mostrarProdutoDestaque());
+
+
+const fusca = new Produto("Fusca", "25/01/23", "Fusca muito bem cuidado", 40000)
+console.log(fusca.mostrarProduto());
+const produto1 = document.getElementById("listaProdutos");
+produtoDestaque.insertAdjacentHTML('afterbegin', fusca.mostrarProduto());
