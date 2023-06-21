@@ -1,5 +1,6 @@
 body {
-  background: #CCC;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: #E5E5E5;
 }
 
 
@@ -9,8 +10,13 @@ body {
   align-items: center;
 }
 
-#listaProdutos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.grid-container {
+  background: #FFFFFF;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+.grid-item {
+  padding: 20px;
 }

@@ -8,11 +8,12 @@ class Produto {
     }
 
     mostrarProduto(){
-        return `
+        return `<div class="grid-item">
                 <h1 class="nome">${this.nome}</h1>
                 <h2 class="preco">R$${this.preco}</h1>
                 <h3 class="descricao">${this.descricao}</h3>
-                <h4 class="data_de_cadastro">${this.data_de_cadastro}</h4>`
+                <h4 class="data_de_cadastro">${this.data_de_cadastro}</h4>
+        </div>`
         //return this.nome + this.data_de_cadastro + this.descricao + this.preco
 }
 }
