@@ -1,4 +1,10 @@
 // divListaProduto.insertAdjacentHTML('afterbegin', '');
+class MeuErro extends Error {
+    constructor(message){
+      super(message);
+      this.name = "Erro";
+    }
+  }
 class Produto {
     constructor(nome, data_de_cadastro, descricao, preco){
         this.nome = nome;
@@ -8,12 +14,16 @@ class Produto {
     }
 
     mostrarProduto(){
+        if (this.nome != "" && this.data_de_cadastro != "" && this.descricao != "" && this.preco != ""){
         return `<div class="grid-item">
                 <h1 class="nome">${this.nome}</h1>
                 <h2 class="preco">R$${this.preco}</h1>
                 <h3 class="descricao">${this.descricao}</h3>
                 <h4 class="data_de_cadastro">${this.data_de_cadastro}</h4>
         </div>`
+    } else {
+        throw new MeuErro("Está faltando algum campo.")
+    }
         //return this.nome + this.data_de_cadastro + this.descricao + this.preco
 }
 }
@@ -25,6 +35,7 @@ class ProdutoDestaque extends Produto {
 
 
 mostrarProdutoDestaque(){
+    if (this.nome != "" && this.data_de_cadastro != "" && this.descricao != "" && this.preco != ""){
     return `
             <h2 class="nome">${this.nome}</h2>
             <img src="opala.jpg" height="300px" width=auto>
@@ -32,7 +43,13 @@ mostrarProdutoDestaque(){
             <h3 class="descricao">${this.descricao}</h3>
             <h4 class="data_de_cadastro">${this.data_de_cadastro}</h4>`
             //return this.nome + this.data_de_cadastro + this.descricao + this.preco
+    } else {
+        throw new MeuErro("Deu erro")
+    }
 }
+
+
+
 
 }
 
