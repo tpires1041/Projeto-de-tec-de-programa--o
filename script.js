@@ -13,6 +13,14 @@ class Produto {
         this.preco = preco
     }
 
+    retornarProduto() {
+        try {
+                return this.mostrarProduto();
+            } catch (erro){
+                console.log(erro.stack)
+            }
+      }
+
     mostrarProduto(){
         if (this.nome != "" && this.data_de_cadastro != "" && this.descricao != "" && this.preco != ""){
         return `<div class="grid-item">
@@ -32,6 +40,14 @@ class ProdutoDestaque extends Produto {
     constructor(nome, data_de_cadastro, descricao, preco){
         super(nome, data_de_cadastro, descricao, preco)
 }
+
+retornarProdutoDestaque() {
+    try {
+            return this.mostrarProdutoDestaque();
+        } catch (erro){
+            console.log(erro.stack)
+        }
+  }
 
 
 mostrarProdutoDestaque(){
@@ -58,7 +74,7 @@ const produtoDestaque = document.getElementById("produtoDestaque");
 produtoDestaque.insertAdjacentHTML('afterbegin', opala.mostrarProdutoDestaque());
 
 
-const fusca = new Produto("Volkswagen Fusca", "25/01/23", "Fusca muito bem cuidado.", 40000);
+const fusca = new Produto("", "25/01/23", "Fusca muito bem cuidado.", 40000);
 const produto1 = document.getElementById("listaProdutos");
 produto1.insertAdjacentHTML('beforeend', fusca.mostrarProduto());
 
